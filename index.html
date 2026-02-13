@@ -173,15 +173,9 @@ for(let i=0; i<30; i++){
 
 </script>
 
-  <!-- SONG SCRIPT -->
-<script>
-document.body.addEventListener("click", function() {
-  document.getElementById("bgMusic").play();
-}, { once: true });
-</script>
+  <canvas id="fireworksCanvas"></canvas>
 
-<!-- FIREWORKS SCRIPT -->
-<script>
+  <script>
 const canvas = document.getElementById("fireworksCanvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -207,8 +201,6 @@ function createFirework() {
 }
 
 setInterval(createFirework, 2000);
-</script>
-
-  <canvas id="fireworksCanvas"></canvas>
+  </script>
 </body>
   </html>
