@@ -105,7 +105,8 @@ frameborder="0" allow="autoplay">
 <h2 style="margin-top:40px;">🎶 Hamara Romantic Song 🎶</h2>
 <p>Earphones laga ke sunna meri jaan ❤️</p>
 
-<iframe width="340" height="200"
+<!-- Video iframe bada kiya -->
+<iframe width="100%" height="400"
 src="https://www.youtube.com/embed/2eliQ_KR8yA"
 title="Khaab – Akhil"
 frameborder="0"
@@ -123,7 +124,7 @@ allowfullscreen>
   <p>Your Rohan is madly in love with you ❤️</p>
   <p>Tere khatir kuch bhi meri jaan 💕</p>
   <p>K Socha tha wish nahi karunga? 🙂😌</p>
-  <p>Ek software engineer ki gf tu🙂🙂🙂🎀</p>
+  <p>Ek software engineer ki gf tu 🙂🙂🙂🎀</p>
   <p>❤️kherr chrdd innbaton ne 😘😘😘🤧🎀💗✨</p>
   <p>Mujhe toh bs kehna 😌😌😌🎀😋💗🌺🥰🥰🌺 Thankyou meri rasmalai 💗 to come 🫴🏻 in my life 🫂🫂💋🫀✨✨✨💗💗
 Only you are the one jiske saath mujhe sachhe wala ishq feel hua 💗</p>
@@ -138,7 +139,6 @@ Only you are the one jiske saath mujhe sachhe wala ishq feel hua 💗</p>
 </div>
 
 <script>
-
 function yesClick() {
   document.getElementById("response").innerHTML =
   "Yayyy 💘 Ab officially meri Valentine ho tum 😌❤️";
@@ -170,12 +170,13 @@ for(let i=0; i<30; i++){
   heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
   document.body.appendChild(heart);
 }
-
 </script>
 
-  <canvas id="fireworksCanvas"></canvas>
+<!-- FIREWORKS CANVAS -->
+<canvas id="fireworksCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
 
-  <script>
+<!-- FIREWORKS SCRIPT -->
+<script>
 const canvas = document.getElementById("fireworksCanvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -190,17 +191,18 @@ function createFirework() {
   const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height / 2;
   const color = randomColor();
-  for(let i=0;i<30;i++){
+  for(let i=0;i<50;i++){ // spread thoda bada kiya
     setTimeout(() => {
       ctx.beginPath();
-      ctx.arc(x + (Math.random()-0.5)*100, y + (Math.random()-0.5)*100, 3, 0, Math.PI*2);
+      ctx.arc(x + (Math.random()-0.5)*150, y + (Math.random()-0.5)*150, 5, 0, Math.PI*2); // particles bada kiya
       ctx.fillStyle = color;
       ctx.fill();
     }, i*50);
   }
 }
 
-setInterval(createFirework, 2000);
-  </script>
+setInterval(createFirework, 1500); // thoda fast
+</script>
+
 </body>
   </html>
