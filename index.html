@@ -14,11 +14,13 @@
     }
 
     .big-name {
-      font-size: 70px;
+      font-size: 60px;
       font-weight: bold;
       text-shadow: 0 0 20px white, 0 0 40px pink;
       animation: glow 2s infinite alternate;
-      margin-top: 40px;
+      margin-top: 30px;
+      position: relative;
+      z-index:2;
     }
 
     @keyframes glow {
@@ -27,23 +29,29 @@
     }
 
     .container {
-      margin-top: 5%;
+      margin-top: 3%;
       animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index:2;
     }
 
     p {
-      font-size: 20px;
-      margin: 10px;
+      font-size: 16px;
+      margin: 8px;
+      position: relative;
+      z-index:2;
     }
 
     button {
-      padding: 12px 25px;
-      font-size: 18px;
+      padding: 10px 22px;
+      font-size: 16px;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      margin: 10px;
+      margin: 8px;
       transition: 0.3s;
+      position: relative;
+      z-index:2;
     }
 
     #yesBtn {
@@ -61,13 +69,15 @@
       background: black;
       color: white;
       position: absolute;
+      z-index:2;
     }
 
     .heart {
       position: absolute;
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       animation: float 6s linear infinite;
+      z-index:1;
     }
 
     @keyframes float {
@@ -82,8 +92,9 @@
 
     .firework {
       position: absolute;
-      font-size: 30px;
+      font-size: 25px;
       animation: explode 1s ease-out forwards;
+      z-index:3; /* Fireworks on top of text */
     }
 
     @keyframes explode {
@@ -96,28 +107,19 @@
 
 <body>
 
-<!-- Background Music (Heeriye) -->
+<!-- Background Music -->
 <iframe width="0" height="0"
 src="https://www.youtube.com/embed/rljC9kM0H6g?autoplay=1&loop=1&playlist=rljC9kM0H6g"
 frameborder="0" allow="autoplay">
 </iframe>
 
-<h2 style="margin-top:40px;">🎶 Hamara Romantic Song 🎶</h2>
-<p>Earphones laga ke sunna meri jaan ❤️</p>
-
-<!-- Video iframe bada kiya -->
-<iframe width="100%" height="400"
-src="https://www.youtube.com/embed/2eliQ_KR8yA"
-title="Khaab – Akhil"
-frameborder="0"
-allow="autoplay; encrypted-media"
-allowfullscreen>
-</iframe>
+<h2 style="margin-top:30px; position:relative; z-index:2;">🎶 Hamara Romantic Song 🎶</h2>
+<p style="position:relative; z-index:2;">Earphones laga ke sunna meri jaan ❤️</p>
 
 <div class="big-name">HARGUN 💗</div>
 
 <div class="container">
-  <h2>Happy Valentine's Day ❤️</h2>
+  <h2 style="font-size:24px;">Happy Valentine's Day ❤️</h2>
 
   <p>My lifeline 😌😌😌👻 meri sundari 😍</p>
   <p>My beautiful gulabbo 😘</p>
@@ -126,17 +128,26 @@ allowfullscreen>
   <p>K Socha tha wish nahi karunga? 🙂😌</p>
   <p>Ek software engineer ki gf tu 🙂🙂🙂🎀</p>
   <p>❤️kherr chrdd innbaton ne 😘😘😘🤧🎀💗✨</p>
-  <p>Mujhe toh bs kehna 😌😌😌🎀😋💗🌺🥰🥰🌺 Thankyou meri rasmalai 💗 to come 🫴🏻 in my life 🫂🫂💋🫀✨✨✨💗💗
-Only you are the one jiske saath mujhe sachhe wala ishq feel hua 💗</p>
-  <p>Thank you to give me all the happiness in my life 🌺thanx for taking care of me 😘😘😘😘😘😘😘or abhi tkk jhelri uske liye b 😁😁😂😂😅💗💗🫂</p>
+  <p>Mujhe toh bs kehna 😌😌😌🎀😋💗🌺🥰 Thankyou meri rasmalai 💗 to come 🫴🏻 in my life 🫂🫂💋🫀✨✨✨💗</p>
+  <p>Only you are the one jiske saath mujhe sachhe wala ishq feel hua 💗</p>
+  <p>Thank you to give me all the happiness in my life 🌺thanx for taking care of me 😘😘😘 or abhi tkk jhelri uske liye b 😁😁😂😂😅💗</p>
 
   <br>
 
   <button id="yesBtn" onclick="yesClick()">Hargun 💕 Will You Be My Valentine?</button>
   <button id="noBtn" onmouseover="moveButton()">No 😜</button>
 
-  <p id="response" style="margin-top:20px;"></p>
+  <p id="response" style="margin-top:15px; position:relative; z-index:2;"></p>
 </div>
+
+<!-- Video iframe bottom, behind fireworks but visible -->
+<iframe width="90%" height="300" style="position:relative; z-index:1; margin-top:10px;"
+src="https://www.youtube.com/embed/2eliQ_KR8yA"
+title="Khaab – Akhil"
+frameborder="0"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
 
 <script>
 function yesClick() {
@@ -172,10 +183,9 @@ for(let i=0; i<30; i++){
 }
 </script>
 
-<!-- FIREWORKS CANVAS -->
-<canvas id="fireworksCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
+<!-- Fireworks Canvas on top of text -->
+<canvas id="fireworksCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;"></canvas>
 
-<!-- FIREWORKS SCRIPT -->
 <script>
 const canvas = document.getElementById("fireworksCanvas");
 const ctx = canvas.getContext("2d");
@@ -189,20 +199,20 @@ function randomColor() {
 
 function createFirework() {
   const x = Math.random() * canvas.width;
-  const y = Math.random() * canvas.height / 2;
+  const y = Math.random() * canvas.height * 0.7; // text area ke upar hi fireworks
   const color = randomColor();
-  for(let i=0;i<50;i++){ // spread thoda bada kiya
+  for(let i=0;i<50;i++){
     setTimeout(() => {
       ctx.beginPath();
-      ctx.arc(x + (Math.random()-0.5)*150, y + (Math.random()-0.5)*150, 5, 0, Math.PI*2); // particles bada kiya
+      ctx.arc(x + (Math.random()-0.5)*150, y + (Math.random()-0.5)*150, 5, 0, Math.PI*2);
       ctx.fillStyle = color;
       ctx.fill();
     }, i*50);
   }
 }
 
-setInterval(createFirework, 1500); // thoda fast
+setInterval(createFirework, 1500);
 </script>
 
 </body>
-  </html>
+    </html>
