@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For MyGulabbo💗</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .big-name {
+      font-size: 70px;
+      font-weight: bold;
+      text-shadow: 0 0 20px white, 0 0 40px pink;
+      animation: glow 2s infinite alternate;
+      margin-top: 40px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 40px pink; }
+    }
+
+    .container {
+      margin-top: 5%;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: white;
+      color: #ff4e8b;
+    }
+
+    #yesBtn:hover {
+      background: #ff4e8b;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background: black;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .firework {
+      position: absolute;
+      font-size: 30px;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      from { transform: scale(0); opacity: 1; }
+      to { transform: scale(2); opacity: 0; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- Background Music (Heeriye) -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/rljC9kM0H6g?autoplay=1&loop=1&playlist=rljC9kM0H6g"
+frameborder="0" allow="autoplay">
+</iframe>
+
+<div class="big-name">HARGUN 💗</div>
+
+<div class="container">
+  <h2>Happy Valentine's Day ❤️</h2>
+
+  <p>My lifeline 😌😌😌👻 meri sundari 😍</p>
+  <p>My beautiful gulabbo 😘</p>
+  <p>Your Rohan is madly in love with you ❤️</p>
+  <p>Tere khatir kuch bhi meri jaan 💕</p>
+  <p>K Socha tha main wish nahi karunga? 🙂😌</p>
+  <p>Ek software engineer ki gf tu🙂🙂🙂🎀</p>
+  <p>❤️kherr chrdd innbaton ne 😘😘😘🤧🎀💗✨</p>
+  <p>Mujhe toh bs kehna 😌😌😌🎀😋💗🌺🥰🥰🌺 Thankyou meri rasmalai 💗 to come 🫴🏻 in my life 🫂🫂💋🫀✨✨✨💗💗
+Only you are the one jiske saath mujhe sachhe wala ishq feel hua 💗</p>
+  <p>Thank you to give me all the happiness in my life 🌺thanx for taking care of me 😘😘😘😘😘😘😘or abhi tkk jhelri uske liye b 😁😁😂😂😅💗💗🫂</p>
+
+  <br>
+
+  <button id="yesBtn" onclick="yesClick()">Hargun 💕 Will You Be My Valentine?</button>
+  <button id="noBtn" onmouseover="moveButton()">No 😜</button>
+
+  <p id="response" style="margin-top:20px;"></p>
+</div>
+
+<script>
+
+function yesClick() {
+  document.getElementById("response").innerHTML =
+  "Yayyy 💘 Ab officially meri Valentine ho tum 😌❤️";
+
+  for(let i=0;i<20;i++){
+    let fw = document.createElement("div");
+    fw.className="firework";
+    fw.innerHTML="✨";
+    fw.style.left=Math.random()*100+"vw";
+    fw.style.top=Math.random()*100+"vh";
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1000);
+  }
+}
+
+function moveButton() {
+  var button = document.getElementById("noBtn");
+  var x = Math.random() * window.innerWidth;
+  var y = Math.random() * window.innerHeight;
+  button.style.left = x + "px";
+  button.style.top = y + "px";
+}
+
+for(let i=0; i<30; i++){
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+  </html>
