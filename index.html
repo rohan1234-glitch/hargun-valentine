@@ -96,6 +96,8 @@
 
 <body>
 
+  <canvas id="fireworksCanvas"></canvas>
+
 <!-- Background Music (Heeriye) -->
 <iframe width="0" height="0"
 src="https://www.youtube.com/embed/rljC9kM0H6g?autoplay=1&loop=1&playlist=rljC9kM0H6g"
@@ -122,7 +124,7 @@ allowfullscreen>
   <p>My beautiful gulabbo 😘</p>
   <p>Your Rohan is madly in love with you ❤️</p>
   <p>Tere khatir kuch bhi meri jaan 💕</p>
-  <p>K Socha tha main wish nahi karunga? 🙂😌</p>
+  <p>K Socha tha wish nahi karunga? 🙂😌</p>
   <p>Ek software engineer ki gf tu🙂🙂🙂🎀</p>
   <p>❤️kherr chrdd innbaton ne 😘😘😘🤧🎀💗✨</p>
   <p>Mujhe toh bs kehna 😌😌😌🎀😋💗🌺🥰🥰🌺 Thankyou meri rasmalai 💗 to come 🫴🏻 in my life 🫂🫂💋🫀✨✨✨💗💗
@@ -171,6 +173,42 @@ for(let i=0; i<30; i++){
   document.body.appendChild(heart);
 }
 
+</script>
+
+  <!-- SONG SCRIPT -->
+<script>
+document.body.addEventListener("click", function() {
+  document.getElementById("bgMusic").play();
+}, { once: true });
+</script>
+
+<!-- FIREWORKS SCRIPT -->
+<script>
+const canvas = document.getElementById("fireworksCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function randomColor() {
+  const colors = ["#FF4B4B","#FFB74B","#FFEA4B","#4BFF6B","#4BD4FF","#B84BFF"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function createFirework() {
+  const x = Math.random() * canvas.width;
+  const y = Math.random() * canvas.height / 2;
+  const color = randomColor();
+  for(let i=0;i<30;i++){
+    setTimeout(() => {
+      ctx.beginPath();
+      ctx.arc(x + (Math.random()-0.5)*100, y + (Math.random()-0.5)*100, 3, 0, Math.PI*2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }, i*50);
+  }
+}
+
+setInterval(createFirework, 2000);
 </script>
 
 </body>
